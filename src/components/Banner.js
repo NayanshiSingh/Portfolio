@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Computer science undergrad","Web Developer", "Coding enthusiast"  ];
+  const toRotate = ["Computer science undergrad", "Web Developer", "Coding enthusiast"];
   const period = 800;
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const Banner = () => {
     }, delta);
 
     return () => { clearInterval(ticker) };
-  }, [text])
+  }, [text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -50,30 +50,30 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Nayanshi Singh`} <span className="txt-rotate" dataPeriod="500" data-rotate='[ "Computer science undergrad","Web Developer", "Coding enthusiast"  ]'><span className="wrap">{text}</span></span></h1>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  {/* <span className="tagline">Welcome to my Portfolio</span> */}
+                  <h1>{`Hi! I'm Nayanshi Singh`} <span className="txt-rotate" dataPeriod="500" data-rotate='[ "Computer science undergrad","Web Developer", "Coding enthusiast"  ]'><span className="wrap">{text}</span></span></h1>
                   <p>with an insatiable curiosity for technology. While I may be new to this field, I'm fueled by a passion for learning and creating impactful solutions.<br/>
-                  My journey thus far has been an exciting one, exploring diverse areas like web development, artificial intelligence, and machine learning. I approach each project with a beginner's mindset, eager to refine my skills and push the boundaries of what's possible.<br/>
-                  Driven by a desire to make a meaningful difference, I'm dedicated to harnessing the power of technology to solve complex problems and improve lives. I'm constantly amazed by the potential of these cutting-edge technologies and excited to collaborate with like-minded individuals.</p>
+                    My journey thus far has been an exciting one, exploring diverse areas like web development, artificial intelligence, and machine learning. I approach each project with a beginner's mindset, eager to refine my skills and push the boundaries of what's possible.<br/>
+                    Driven by a desire to make a meaningful difference, I'm dedicated to harnessing the power of technology to solve complex problems and improve lives. I'm constantly amazed by the potential of these cutting-edge technologies and excited to collaborate with like-minded individuals.</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
-              </div>}
+                </div>}
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
                 </div>}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
+      <div className="my-portfolio">My Portfolio</div>
     </section>
   )
 }

@@ -99,21 +99,23 @@ nav.navbar {
   width: 100%;
   top: 0;
   z-index: 9999;
-  transition:  0.32s ease-in-out;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  background-color: transparent; /* Initial background color */
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
+  padding: 10px 0;
   background-color: #121212;
 }
-nav.navbar a.navbar-brand {
-    width: 9%;
+nav.navbar a.navbar-brand img {
+  height: 60px; /* Adjust as per your logo height */
+  width: auto;
 }
-nav.navbar .navbar-nav .nav-link.navbar-link {
+nav.navbar .navbar-nav .nav-link {
   font-weight: 400;
   color: #fff !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
-  font-size: 18px;
+  padding: 0 15px;
+  font-size: 16px;
   opacity: 0.75;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
@@ -241,24 +243,43 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
 
+main {
+  padding-top: 80px; /* Adjust as per your navbar height */
+}
+
+
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/img/bg.png');
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text within */
 }
-.banner .tagline {
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 20px;
-  margin-bottom: 16px;
-  display: inline-block;
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #010;
 }
+
+.banner {
+  margin-top: 0;
+  padding: 260px 0 100px 0;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  font-family: 'Cairo', sans-serif;
+}
+
 .banner h1 {
   font-size: 65px;
   font-weight: 700;
@@ -266,7 +287,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1;
   margin-bottom: 20px;
   display: block;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
 }
+
 .banner p {
   color: #B8B8B8;
   font-size: 18px;
@@ -274,6 +302,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   width: 96%;
 }
+
 .banner button {
   color: #fff;
   font-weight: 700;
@@ -283,62 +312,224 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: flex;
   align-items: center;
 }
+
 .banner button svg {
   font-size: 25px;
   margin-left: 10px;
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
+
 .banner button:hover svg {
   margin-left: 25px;
 }
+
 .banner img {
   animation: updown 3s linear infinite;
 }
+
 @keyframes updown {
-    0% {
-        transform: translateY(-20px);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
 }
+
 .txt-rotate > .wrap {
   border-right: 0.08em solid #666;
 }
 
-.skill {
-  padding: 0 0 50px 0;
-  position: relative;
-}
-.skill-bx {
-  background: #151515;
-  border-radius: 64px;
+/* Styling for "My Portfolio" text */
+.my-portfolio {
+  position: absolute;
+  right: 0;
+  bottom: -100%; /* Start below the viewport */
+  width: 100%;
+  font-size: 60px; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #fff;
   text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px;
-}
-.skill h2 {
-	font-size: 45px;
-	font-weight: 700;
-}
-.skill p {
-    color: #B8B8B8;
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
+  transform: rotate(90deg); /* Rotate text */
+  transform-origin: right bottom;
+  animation: moveUp 10s linear infinite; /* Adjust duration and easing as needed */
 }
 
-.background-image-left {
-  top: 28%;
-  position: absolute;
-  bottom: 0;
-  width: 40%;
-  z-index: -4;
+@keyframes moveUp {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+
+.banner h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+
+.banner button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+
+.banner button:hover svg {
+  margin-left: 25px;
+}
+
+.banner img {
+  animation: updown 3s linear infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+
+/* Skills.css */
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #010;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #010;
+}
+
+.skill {
+  font-size: 45px;
+  font-weight: 700;
+  padding: 80px 0;
+  position: relative;
+  text-align: center;
+}
+
+.skill-grid {
+  display: flex;
+  padding-top: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.skill-item {
+  position: relative;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.progress-bar-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.progress-bar {
+  animation: progress-bar-fill 5s ease-in-out forwards;
+}
+
+@keyframes progress-bar-fill {
+  0% { stroke-dasharray: 0 100; }
+  100% { stroke-dasharray: 100 100; }
+}
+
+.skill-info-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.skill-info-sliding {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  animation: reveal 5s infinite;
+}
+
+.skill-name {
+  display: inline-block;
+  margin-left: -800px;
+  animation: slidein 7s infinite;
+}
+
+.skill-description {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 18px;
+  color: #ccc;
+  animation: slidein 7s infinite;
+}
+
+@keyframes slidein {
+  0% { margin-left:-800px; }
+  20% { margin-left:-800px; }
+  35% { margin-left:0px; }
+  100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+  0% { opacity: 0; width: 0; }
+  20% { opacity: 1; width: 0; }
+  30% { width: 100%; }
+  80% { opacity: 1; }
+  100% { opacity: 0; width: 100%; }
+}
+
+/* Add any additional CSS for the carousel or other elements here */
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #010;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #010;
 }
 
 .project {
@@ -346,13 +537,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
   background-color: black;
 }
-.project h2 {
-	font-size: 45px;
-	font-weight: 700;
+.project h1 {
+	font-size: 80px;
+	font-weight: 800;
   text-align: center;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
 }
 .project p {
-  color: #B8B8B8;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -463,18 +654,22 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
-
 .contact {
+  position: relative;
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background-color: black;
   padding: 60px 0 200px 0;
 }
 .contact img {
+  padding: 80px 0;
+  position: relative;
   width: 92%;
 }
-.contact h2 {
-	font-size: 45px;
-	font-weight: 700;
+.contact h1 {
+	font-size: 10px;
+	font-weight: 400;
   margin-bottom: 30px;
+  /* background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif); */
 }
 .contact form input, .contact form textarea {
   width: 100%;
@@ -537,12 +732,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /* Contact.css */
 .contact-container {
-  padding: 50px;
+  margin-top: 150px;
   text-align: center;
-  background-image: url('./assets/img/color-sharp.png'); 
+  /* background-image: url('./assets/img/color-sharp.png');  */
   background-size: cover;
   background-position: center;
-  color: white; 
+  /* color: white;  */
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
 }
 
 .contact-details {
@@ -568,4 +764,52 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .contact-info p {
   margin: 10px 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+body {
+  background-color: #010; /* Dark background color */
+}
+
+.title {
+  font-family: "Cairo", sans-serif;
+  text-align: center;
+  color: #FFF; /* White text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+h1 {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 120px;
+  margin: 10px 0;
+}
+
+.white-mode {
+  text-decoration: none;
+  padding: 7px 10px;
+  background-color: #122; /* Darker background color for the button */
+  border-radius: 3px;
+  color: #FFF; /* White text color */
+  transition: .35s ease-in-out;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font-family: "Montserrat", sans-serif; /* Assuming Montserrat is used */
+}
+
+.white-mode:hover {
+  background-color: #FFF; /* White background color on hover */
+  color: #122; /* Darker text color on hover */
 }

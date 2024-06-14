@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/img/Logo.png';
 import githubIcon from '../assets/img/githubIcon.svg';
 import linkedinIcon from '../assets/img/linkedinIcon.svg';
+// import '../styles/NavBar.css'; // Import your custom CSS for Navbar
 
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const handleScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
       } else {
@@ -18,12 +19,14 @@ const NavBar = () => {
       }
     };
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const onUpdateActiveLink = (value) => {
+  const handleNavLinkClick = (value) => {
     setActiveLink(value);
   };
 
@@ -33,16 +36,14 @@ const NavBar = () => {
         <Navbar.Brand as={Link} to="/">
           <img src={Logo} height="100" alt="logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navBar-toggler-icon"></span>
-        </Navbar.Toggle>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link
               as={Link}
               to="/"
               className={activeLink === 'home' ? 'active nav-bar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('home')}
+              onClick={() => handleNavLinkClick('home')}
             >
               Home
             </Nav.Link>
@@ -50,7 +51,7 @@ const NavBar = () => {
               as={Link}
               to="/skills"
               className={activeLink === 'skills' ? 'active nav-bar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('skills')}
+              onClick={() => handleNavLinkClick('skills')}
             >
               Skills
             </Nav.Link>
@@ -58,26 +59,26 @@ const NavBar = () => {
               as={Link}
               to="/projects"
               className={activeLink === 'projects' ? 'active nav-bar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('projects')}
+              onClick={() => handleNavLinkClick('projects')}
             >
               Projects
             </Nav.Link>
           </Nav>
-          <span className="navbar-text">
+          <div className="navbar-text">
             <div className="social-icon">
               <a href="https://github.com/nayanshiSingh">
-                <img src={githubIcon} alt="" />
+                <img src={githubIcon} alt="GitHub" />
               </a>
               <a href="https://www.linkedin.com/in/nayanshi-singh-20a4162a9/">
-                <img src={linkedinIcon} alt="" />
+                <img src={linkedinIcon} alt="LinkedIn" />
               </a>
             </div>
             <Link to="/contact">
-              <button className="vvd">
+              <button className="connect-button">
                 <span>Let's Connect</span>
               </button>
             </Link>
-          </span>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

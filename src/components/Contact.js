@@ -13,7 +13,7 @@ const Contact = () => {
           <img src={profilePhoto} alt="Profile" className="profile-photo" />
         </Col>
         <Col md={6}>
-          <h2>Contact Me</h2>
+          <h1>Contact Me</h1>
           <p>
             <strong>Phone:</strong> +91 6306455363
           </p>
